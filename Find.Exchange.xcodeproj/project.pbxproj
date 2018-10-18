@@ -14,6 +14,8 @@
 		86DA271C2179445A003A3871 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86DA271A2179445A003A3871 /* LaunchScreen.storyboard */; };
 		86DA27272179445A003A3871 /* Find_ExchangeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DA27262179445A003A3871 /* Find_ExchangeTests.swift */; };
 		86DA27322179445A003A3871 /* Find_ExchangeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DA27312179445A003A3871 /* Find_ExchangeUITests.swift */; };
+		86DA2743217945F3003A3871 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DA2742217945F3003A3871 /* TabBarViewController.swift */; };
+		86DA27452179472C003A3871 /* MoneyTabCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DA27442179472C003A3871 /* MoneyTabCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		86DA272D2179445A003A3871 /* Find.ExchangeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Find.ExchangeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		86DA27312179445A003A3871 /* Find_ExchangeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Find_ExchangeUITests.swift; sourceTree = "<group>"; };
 		86DA27332179445A003A3871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86DA2742217945F3003A3871 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		86DA27442179472C003A3871 /* MoneyTabCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTabCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,7 @@
 		86DA271021794459003A3871 /* Find.Exchange */ = {
 			isa = PBXGroup;
 			children = (
+				86DA273F217945B2003A3871 /* Controllers */,
 				86DA271121794459003A3871 /* AppDelegate.swift */,
 				86DA271321794459003A3871 /* ViewController.swift */,
 				86DA271521794459003A3871 /* Main.storyboard */,
@@ -123,6 +128,15 @@
 				86DA27332179445A003A3871 /* Info.plist */,
 			);
 			path = Find.ExchangeUITests;
+			sourceTree = "<group>";
+		};
+		86DA273F217945B2003A3871 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				86DA2742217945F3003A3871 /* TabBarViewController.swift */,
+				86DA27442179472C003A3871 /* MoneyTabCollectionViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +270,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86DA27452179472C003A3871 /* MoneyTabCollectionViewController.swift in Sources */,
+				86DA2743217945F3003A3871 /* TabBarViewController.swift in Sources */,
 				86DA271421794459003A3871 /* ViewController.swift in Sources */,
 				86DA271221794459003A3871 /* AppDelegate.swift in Sources */,
 			);
