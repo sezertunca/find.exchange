@@ -18,7 +18,7 @@ class MoneyTabCollectionViewController : UICollectionViewController
         
         collectionView.backgroundColor = .white
         
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(MarketCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         
         setupNavBar()
     }
@@ -48,17 +48,31 @@ class MoneyTabCollectionViewController : UICollectionViewController
     
 }
 
-extension MoneyTabCollectionViewController
+extension MoneyTabCollectionViewController : UICollectionViewDelegateFlowLayout
 {
-    override func numberOfSections(in collectionView: UICollectionView) -> Int
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
-        return 5
+        return CGSize(width: view.frame.width - 32, height: 350)
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+    {
+        return 3
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-        cell.backgroundColor = .orange
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MarketCollectionViewCell
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat
+    {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat
+    {
+        return 20
     }
 }
