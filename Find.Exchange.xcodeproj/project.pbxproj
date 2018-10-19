@@ -21,6 +21,11 @@
 		86DA274F21795BD8003A3871 /* SubMenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DA274E21795BD8003A3871 /* SubMenuBar.swift */; };
 		86DA2751217962AC003A3871 /* SubMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DA2750217962AC003A3871 /* SubMenuCollectionViewCell.swift */; };
 		86DA2753217A5636003A3871 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DA2752217A5636003A3871 /* Constants.swift */; };
+		86DA2758217A656D003A3871 /* SubMenuBarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DA2757217A656D003A3871 /* SubMenuBarProtocol.swift */; };
+		86DA275A217A6790003A3871 /* AccountsTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DA2759217A6790003A3871 /* AccountsTabBarViewController.swift */; };
+		86DA275C217A683F003A3871 /* CardTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DA275B217A683F003A3871 /* CardTabBarViewController.swift */; };
+		86DA275E217A686A003A3871 /* ScanQrTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DA275D217A686A003A3871 /* ScanQrTabBarViewController.swift */; };
+		86DA2760217A688B003A3871 /* MoreTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DA275F217A688B003A3871 /* MoreTabBarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +66,11 @@
 		86DA274E21795BD8003A3871 /* SubMenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubMenuBar.swift; sourceTree = "<group>"; };
 		86DA2750217962AC003A3871 /* SubMenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubMenuCollectionViewCell.swift; sourceTree = "<group>"; };
 		86DA2752217A5636003A3871 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		86DA2757217A656D003A3871 /* SubMenuBarProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubMenuBarProtocol.swift; sourceTree = "<group>"; };
+		86DA2759217A6790003A3871 /* AccountsTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsTabBarViewController.swift; sourceTree = "<group>"; };
+		86DA275B217A683F003A3871 /* CardTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTabBarViewController.swift; sourceTree = "<group>"; };
+		86DA275D217A686A003A3871 /* ScanQrTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQrTabBarViewController.swift; sourceTree = "<group>"; };
+		86DA275F217A688B003A3871 /* MoreTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTabBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				86DA273F217945B2003A3871 /* Controllers */,
+				86DA2756217A6365003A3871 /* CustomViews */,
 				86DA274921795689003A3871 /* Cells */,
 				86DA2746217952B7003A3871 /* Helpers */,
 				86DA271521794459003A3871 /* Main.storyboard */,
@@ -145,6 +156,10 @@
 			children = (
 				86DA2742217945F3003A3871 /* TabBarViewController.swift */,
 				86DA27442179472C003A3871 /* MoneyTabCollectionViewController.swift */,
+				86DA2759217A6790003A3871 /* AccountsTabBarViewController.swift */,
+				86DA275B217A683F003A3871 /* CardTabBarViewController.swift */,
+				86DA275D217A686A003A3871 /* ScanQrTabBarViewController.swift */,
+				86DA275F217A688B003A3871 /* MoreTabBarViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -152,10 +167,10 @@
 		86DA2746217952B7003A3871 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				86DA271121794459003A3871 /* AppDelegate.swift */,
 				86DA2747217952C4003A3871 /* Extensions.swift */,
-				86DA274E21795BD8003A3871 /* SubMenuBar.swift */,
 				86DA2752217A5636003A3871 /* Constants.swift */,
+				86DA271121794459003A3871 /* AppDelegate.swift */,
+				86DA2757217A656D003A3871 /* SubMenuBarProtocol.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -168,6 +183,14 @@
 				86DA2750217962AC003A3871 /* SubMenuCollectionViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		86DA2756217A6365003A3871 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				86DA274E21795BD8003A3871 /* SubMenuBar.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,8 +331,13 @@
 				86DA274D217956BD003A3871 /* BaseCell.swift in Sources */,
 				86DA274B2179569D003A3871 /* MarketCollectionViewCell.swift in Sources */,
 				86DA271221794459003A3871 /* AppDelegate.swift in Sources */,
+				86DA2758217A656D003A3871 /* SubMenuBarProtocol.swift in Sources */,
 				86DA274F21795BD8003A3871 /* SubMenuBar.swift in Sources */,
+				86DA275A217A6790003A3871 /* AccountsTabBarViewController.swift in Sources */,
+				86DA275E217A686A003A3871 /* ScanQrTabBarViewController.swift in Sources */,
+				86DA275C217A683F003A3871 /* CardTabBarViewController.swift in Sources */,
 				86DA2753217A5636003A3871 /* Constants.swift in Sources */,
+				86DA2760217A688B003A3871 /* MoreTabBarViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

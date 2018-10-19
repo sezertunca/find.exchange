@@ -19,12 +19,14 @@ class SubMenuBar : UIView, UICollectionViewDataSource, UICollectionViewDelegate,
         "Loans"
     ]
     
+    var delegate : SubMenuBarDelegate?
+    
     lazy var collectionView : UICollectionView =
     {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = UIColor(r: 248, g: 248, b: 248)
+        collectionView.backgroundColor = .whiteish
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.showsHorizontalScrollIndicator = false
@@ -42,11 +44,13 @@ class SubMenuBar : UIView, UICollectionViewDataSource, UICollectionViewDelegate,
                               bottom: bottomAnchor,
                               right: rightAnchor,
                               topPadding: 0,
-                              leftPadding: 20,
+                              leftPadding: 0,
                               bottomPadding: 0,
-                              rightPadding: 20,
+                              rightPadding: 0,
                               width: 0,
                               height: 0)
+        
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         
         collectionView.register(SubMenuCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         
@@ -78,7 +82,13 @@ extension SubMenuBar
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
         let size = (menuOptions[indexPath.item] as NSString).size(withAttributes: nil)
-        return CGSize(width: size.width + 50, height: collectionView.frame.height / 2)
+        return CGSize(width: size.width + (size.width / 1.5), height: collectionView.frame.height / 2)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
+    {
+        let title = menuOptions[indexPath.item]
+        delegate?.updateCompareButtonTitle(text: title)
     }
 }
 

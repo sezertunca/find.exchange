@@ -138,4 +138,9 @@ extension UIColor
     {
         self.init(red: r/255, green: g/255, blue: b/255, alpha: a)
     }
+    
+    static let whiteish : UIColor =
+    {
+        return UIColor(r: 245, g: 245, b: 245)
+    }()
 }

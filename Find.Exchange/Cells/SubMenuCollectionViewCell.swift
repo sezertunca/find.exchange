@@ -13,9 +13,9 @@ class SubMenuCollectionViewCell : BaseCollectionViewCell
     let label : UILabel =
     {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = UIColor.init(r: 198, g: 198, b: 198)
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 15, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: FontSize.body, weight: .bold)
         return label
     }()
     
@@ -33,7 +33,7 @@ class SubMenuCollectionViewCell : BaseCollectionViewCell
                      width: 0,
                      height: 0)
         
-        backgroundColor = UIColor(r: 248, g: 248, b: 248)
+        backgroundColor = .whiteish
         
         layer.cornerRadius = Radius.subMenuItem
     }
@@ -49,8 +49,8 @@ class SubMenuCollectionViewCell : BaseCollectionViewCell
             }
             else
             {
-                backgroundColor = UIColor(r: 248, g: 248, b: 248)
-                label.textColor = .black
+                backgroundColor = .whiteish
+                label.textColor = UIColor.init(r: 198, g: 198, b: 198)
             }
         }
     }

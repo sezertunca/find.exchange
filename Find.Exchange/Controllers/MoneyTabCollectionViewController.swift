@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MoneyTabCollectionViewController : UICollectionViewController
+class MoneyTabCollectionViewController : UICollectionViewController, SubMenuBarDelegate
 {
     let cellId = "cellId"
     
@@ -18,11 +18,24 @@ class MoneyTabCollectionViewController : UICollectionViewController
         return view
     }()
     
+    let hoverButton : UIButton =
+    {
+       let button = UIButton(type: .system)
+        button.setTitle("Compare Money Transfer", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: FontSize.body, weight: .bold)
+        button.backgroundColor = .black
+        button.setTitleColor(.white, for: .normal)
+        button.layer.cornerRadius = Radius.marketTabHoverButton
+        button.addTarget(self, action: #selector(handleCompareButton), for: .touchUpInside)
+        return button
+    }()
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        collectionView.backgroundColor = UIColor(r: 248, g: 248, b: 248)
+        
+        collectionView.backgroundColor = .whiteish
         
         collectionView.register(MarketCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         
@@ -35,6 +48,19 @@ class MoneyTabCollectionViewController : UICollectionViewController
         collectionView.showsVerticalScrollIndicator = false
         
         self.extendedLayoutIncludesOpaqueBars = true;
+        
+        view.addSubview(hoverButton)
+        
+        hoverButton.anchor(top: nil,
+                           left: view.leftAnchor,
+                           bottom: view.bottomAnchor,
+                           right: view.rightAnchor,
+                           topPadding: 0,
+                           leftPadding: 45,
+                           bottomPadding: 100,
+                           rightPadding: 45,
+                           width: 0,
+                           height: 40)
     }
     
     private func setupNavBar()
@@ -43,7 +69,7 @@ class MoneyTabCollectionViewController : UICollectionViewController
         titleLabel.text = " Market"
         titleLabel.textColor = .black
 
-        titleLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 30)
+        titleLabel.font = UIFont(name: "HelveticaNeue-Bold", size: FontSize.navTitleSize)
 
         navigationItem.titleView = titleLabel
         
@@ -53,7 +79,7 @@ class MoneyTabCollectionViewController : UICollectionViewController
         
         navigationController?.navigationBar.shouldRemoveShadow(true)
         
-        navigationController?.navigationBar.barTintColor = UIColor(r: 248, g: 248, b: 248)
+        navigationController?.navigationBar.barTintColor = .whiteish
         
         navigationController?.navigationBar.isTranslucent = false
         
@@ -63,7 +89,8 @@ class MoneyTabCollectionViewController : UICollectionViewController
     private func setupSubMenuBar()
     {
         view.addSubview(subMenuBar)
-        subMenuBar.backgroundColor = UIColor(r: 248, g: 248, b: 248)
+        subMenuBar.backgroundColor = .whiteish
+        subMenuBar.delegate = self
         subMenuBar.anchor(top: view.topAnchor,
                           left: view.leftAnchor,
                           bottom: nil,
@@ -73,14 +100,19 @@ class MoneyTabCollectionViewController : UICollectionViewController
                           bottomPadding: 0,
                           rightPadding: 0,
                           width: 0,
-                          height: 40)
+                          height: 60)
     }
     
+    //MARK: - Handlers
     @objc func handleSearchNavButton()
     {
         print("Search has not been implemented yet.")
     }
     
+    @objc func handleCompareButton()
+    {
+        print("Compare has not been implemented yet.")
+    }
     
 }
 
@@ -110,5 +142,11 @@ extension MoneyTabCollectionViewController : UICollectionViewDelegateFlowLayout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat
     {
         return 21
+    }
+    
+    func updateCompareButtonTitle(text: String)
+    {
+        let newTitle = "Compare \(text)"
+        hoverButton.setTitle(newTitle, for: .normal)
     }
 }

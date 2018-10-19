@@ -23,19 +23,19 @@ class TabBarViewController : UITabBarController
         marketTabNavController.tabBarItem.image = UIImage(named: "market")?.withRenderingMode(.alwaysOriginal)
         marketTabNavController.tabBarItem.selectedImage = UIImage(named: "market_active")?.withRenderingMode(.alwaysOriginal)
         
-        let accountTabViewController = UIViewController()
+        let accountTabViewController = AccountsTabBarViewController()
         accountTabViewController.tabBarItem.image = UIImage(named: "accounts")?.withRenderingMode(.alwaysOriginal)
         accountTabViewController.tabBarItem.selectedImage = UIImage(named: "accounts")?.withRenderingMode(.alwaysTemplate)
         
-        let cardTabViewController = UIViewController()
+        let cardTabViewController = CardTabBarViewController()
         cardTabViewController.tabBarItem.image = UIImage(named: "card")?.withRenderingMode(.alwaysOriginal)
         cardTabViewController.tabBarItem.selectedImage = UIImage(named: "card")?.withRenderingMode(.alwaysTemplate)
         
-        let qrTabViewController = UIViewController()
+        let qrTabViewController = ScanQrTabBarController()
         qrTabViewController.tabBarItem.image = UIImage(named: "qr")?.withRenderingMode(.alwaysOriginal)
         qrTabViewController.tabBarItem.selectedImage = UIImage(named: "qr")?.withRenderingMode(.alwaysOriginal)
         
-        let moreTabViewController = UIViewController()
+        let moreTabViewController = MoreTabBarViewController()
         moreTabViewController.tabBarItem.image = UIImage(named: "more")?.withRenderingMode(.alwaysOriginal)
         moreTabViewController.tabBarItem.selectedImage = UIImage(named: "more")?.withRenderingMode(.alwaysTemplate)
         
