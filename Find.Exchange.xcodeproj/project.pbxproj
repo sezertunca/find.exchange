@@ -19,6 +19,8 @@
 		86DA2748217952C4003A3871 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DA2747217952C4003A3871 /* Extensions.swift */; };
 		86DA274B2179569D003A3871 /* MarketCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DA274A2179569D003A3871 /* MarketCollectionViewCell.swift */; };
 		86DA274D217956BD003A3871 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DA274C217956BD003A3871 /* BaseCell.swift */; };
+		86DA274F21795BD8003A3871 /* SubMenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DA274E21795BD8003A3871 /* SubMenuBar.swift */; };
+		86DA2751217962AC003A3871 /* SubMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DA2750217962AC003A3871 /* SubMenuCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		86DA2747217952C4003A3871 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		86DA274A2179569D003A3871 /* MarketCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketCollectionViewCell.swift; sourceTree = "<group>"; };
 		86DA274C217956BD003A3871 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
+		86DA274E21795BD8003A3871 /* SubMenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubMenuBar.swift; sourceTree = "<group>"; };
+		86DA2750217962AC003A3871 /* SubMenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubMenuCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				86DA2747217952C4003A3871 /* Extensions.swift */,
+				86DA274E21795BD8003A3871 /* SubMenuBar.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -160,6 +165,7 @@
 			children = (
 				86DA274A2179569D003A3871 /* MarketCollectionViewCell.swift */,
 				86DA274C217956BD003A3871 /* BaseCell.swift */,
+				86DA2750217962AC003A3871 /* SubMenuCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -295,6 +301,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86DA2751217962AC003A3871 /* SubMenuCollectionViewCell.swift in Sources */,
 				86DA2748217952C4003A3871 /* Extensions.swift in Sources */,
 				86DA27452179472C003A3871 /* MoneyTabCollectionViewController.swift in Sources */,
 				86DA2743217945F3003A3871 /* TabBarViewController.swift in Sources */,
@@ -302,6 +309,7 @@
 				86DA274D217956BD003A3871 /* BaseCell.swift in Sources */,
 				86DA274B2179569D003A3871 /* MarketCollectionViewCell.swift in Sources */,
 				86DA271221794459003A3871 /* AppDelegate.swift in Sources */,
+				86DA274F21795BD8003A3871 /* SubMenuBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

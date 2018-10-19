@@ -12,6 +12,12 @@ class MoneyTabCollectionViewController : UICollectionViewController
 {
     let cellId = "cellId"
     
+    let subMenuBar : SubMenuBar =
+    {
+        let view = SubMenuBar()
+        return view
+    }()
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -21,6 +27,12 @@ class MoneyTabCollectionViewController : UICollectionViewController
         collectionView.register(MarketCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         
         setupNavBar()
+        
+        setupSubMenuBar()
+        
+        collectionView.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
+        
+        collectionView.showsVerticalScrollIndicator = false
     }
     
     private func setupNavBar()
@@ -37,7 +49,26 @@ class MoneyTabCollectionViewController : UICollectionViewController
         
         navigationItem.rightBarButtonItems = [searchNavButton]
         
-        self.navigationController?.navigationBar.shouldRemoveShadow(true)
+        navigationController?.navigationBar.shouldRemoveShadow(true)
+        
+        navigationController?.navigationBar.barTintColor = .white
+        
+        navigationController?.hidesBarsOnSwipe = true
+    }
+    
+    private func setupSubMenuBar()
+    {
+        view.addSubview(subMenuBar)
+        subMenuBar.anchor(top: view.topAnchor,
+                          left: view.leftAnchor,
+                          bottom: nil,
+                          right: view.rightAnchor,
+                          topPadding: 64,
+                          leftPadding: 0,
+                          bottomPadding: 0,
+                          rightPadding: 0,
+                          width: 0,
+                          height: 40)
     }
     
     @objc func handleSearchNavButton()
