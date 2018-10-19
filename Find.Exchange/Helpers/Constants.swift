@@ -21,5 +21,5 @@ struct FontSize
     static let body : CGFloat = 15
     static let subTitle : CGFloat = 24
     static let navTitleSize : CGFloat = 30
-    static let title : CGFloat = 42
+    static let title : CGFloat = 30
 }

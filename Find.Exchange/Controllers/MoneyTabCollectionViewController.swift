@@ -13,12 +13,31 @@ class MoneyTabCollectionViewController : UICollectionViewController, SubMenuBarD
     // Temp hard coded - This would normally be fetched from an API
     var adverts : [Advert] =
     {
-        var ad1 = Advert(title: "PICK OF THE WEEK",
+        var currencySolutions = Advert(title: "PICK OF THE WEEK",
                          subTitle: "Your trusted provider for personal & business",
                          image: #imageLiteral(resourceName: "couple1"),
-                         subTitleBackgroundColor: nil,
+                         subTitleBackgroundColor: UIColor.init(r: 3, g: 80, b: 147, a: 0.7),
                          provider: Provider(name: "Currency Solutions", logo: #imageLiteral(resourceName: "currency_solutions_logo")))
-        return [ad1]
+        
+        var currencyFair = Advert(title: "You, him, she, her...",
+                         subTitle: "Just go direct...",
+                         image: #imageLiteral(resourceName: "couple2"),
+                         subTitleBackgroundColor: UIColor.init(r: 186, g: 201, b: 212, a: 1),
+                         provider: Provider(name: "Currency Fair", logo: #imageLiteral(resourceName: "currency_fair_logo")))
+        
+        var xendPay = Advert(title: "Become a XendPay",
+                         subTitle: "",
+                         image: #imageLiteral(resourceName: "girl"),
+                         subTitleBackgroundColor: UIColor.init(r: 3, g: 80, b: 147, a: 0),
+                         provider: Provider(name: "Xend>Pay", logo: #imageLiteral(resourceName: "xendpay_logo")))
+        
+        var people = Advert(title: "",
+                             subTitle: "",
+                             image: #imageLiteral(resourceName: "people"),
+                             subTitleBackgroundColor: UIColor.init(r: 3, g: 80, b: 147, a: 0),
+                             provider: Provider(name: "", logo: nil))
+        
+        return [currencySolutions, currencyFair, xendPay, people]
     }()
     
     let cellId = "cellId"
@@ -45,6 +64,7 @@ class MoneyTabCollectionViewController : UICollectionViewController, SubMenuBarD
     {
         super.viewDidLoad()
         
+        hidesBottomBarWhenPushed = true
         
         collectionView.backgroundColor = .whiteish
         
@@ -94,7 +114,14 @@ class MoneyTabCollectionViewController : UICollectionViewController, SubMenuBarD
         
         navigationController?.navigationBar.isTranslucent = false
         
-//        navigationController?.hidesBarsOnSwipe = true
+        UIApplication.shared.statusBarView?.backgroundColor = .whiteish
+        
+        navigationController?.navigationBar.isHidden = true
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle
+    {
+        return .default
     }
     
     private func setupSubMenuBar()
@@ -106,7 +133,7 @@ class MoneyTabCollectionViewController : UICollectionViewController, SubMenuBarD
                           left: view.leftAnchor,
                           bottom: nil,
                           right: view.rightAnchor,
-                          topPadding: 88,
+                          topPadding: 44,
                           leftPadding: 0,
                           bottomPadding: 0,
                           rightPadding: 0,
@@ -123,6 +150,33 @@ class MoneyTabCollectionViewController : UICollectionViewController, SubMenuBarD
     @objc func handleCompareButton()
     {
         print("Compare has not been implemented yet.")
+    }
+    
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView)
+    {
+        if (scrollView.contentOffset.y >= (scrollView.contentSize.height - scrollView.frame.size.height))
+        {
+            UIView.animate(withDuration: 0.5, delay: 0, options:.transitionCurlDown, animations:
+            {
+                self.navigationController?.navigationBar.isHidden = true
+                self.tabBarController?.tabBar.isHidden = true
+            }, completion : nil)
+        }
+        
+        if (scrollView.contentOffset.y < 0)
+        {
+            print("Reached top")
+        }
+        
+        if (scrollView.contentOffset.y >= 0 && scrollView.contentOffset.y < (scrollView.contentSize.height - scrollView.frame.size.height))
+        {
+            UIView.animate(withDuration: 0.5, delay: 0, options:.transitionCurlDown, animations:
+            {
+//                self.navigationController?.navigationBar.isHidden = false
+                self.tabBarController?.tabBar.isHidden = false
+            }, completion : nil)
+        }
     }
     
 }
@@ -153,7 +207,7 @@ extension MoneyTabCollectionViewController : UICollectionViewDelegateFlowLayout
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat
     {
-        return 21
+        return 10
     }
     
     func updateCompareButtonTitle(text: String)

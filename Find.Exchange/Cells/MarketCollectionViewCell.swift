@@ -16,9 +16,15 @@ class MarketCollectionViewCell : BaseCollectionViewCell
         didSet
         {
             backGroundImageView.image = advert?.image
+            providerLogoImageView.image = advert?.provider?.logo
             providerNameLabel.text = advert?.provider?.name
             advertTitleLabel.text = advert?.title
             advertSubTitleLabel.text = advert?.subTitle
+            
+            if let bottomColor = advert?.subTitleBackgroundColor
+            {
+                bottomBackgroundView.backgroundColor = bottomColor
+            }
         }
     }
     
@@ -63,6 +69,9 @@ class MarketCollectionViewCell : BaseCollectionViewCell
     let bottomBackgroundView : UIView =
     {
         let view = UIView()
+        view.clipsToBounds = true
+        view.layer.cornerRadius = Radius.appGeneral
+        view.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         return view
     }()
     
@@ -155,12 +164,23 @@ class MarketCollectionViewCell : BaseCollectionViewCell
                                 leftPadding: 23,
                                 bottomPadding: 0,
                                 rightPadding: 0,
-                                width: 152,
+                                width: 115,
                                 height: 200)
         
         advertTitleLabel.anchorCenterYToSuperview()
 
         addSubview(bottomBackgroundView)
+        
+        bottomBackgroundView.anchor(top: nil,
+                                    left: leftAnchor,
+                                    bottom: bottomAnchor,
+                                    right: rightAnchor,
+                                    topPadding: 5,
+                                    leftPadding: 5,
+                                    bottomPadding:5,
+                                    rightPadding: 5,
+                                    width: 0,
+                                    height: 80)
         
         addSubview(advertSubTitleLabel)
         
@@ -172,7 +192,7 @@ class MarketCollectionViewCell : BaseCollectionViewCell
                            right: rightAnchor,
                            topPadding: 0,
                            leftPadding: 0,
-                           bottomPadding: 30,
+                           bottomPadding: 25,
                            rightPadding: 20,
                            width: frame.width / 3,
                            height: 40)

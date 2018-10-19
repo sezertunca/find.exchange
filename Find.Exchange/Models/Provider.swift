@@ -11,9 +11,9 @@ import UIKit
 struct Provider
 {
     var name : String
-    var logo : UIImage
+    var logo : UIImage?
     
-    init(name: String, logo: UIImage)
+    init(name: String, logo: UIImage?)
     {
         self.name = name
         self.logo = logo
