@@ -22,7 +22,7 @@ class MoneyTabCollectionViewController : UICollectionViewController
     {
         super.viewDidLoad()
         
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = UIColor(r: 248, g: 248, b: 248)
         
         collectionView.register(MarketCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         
@@ -30,15 +30,17 @@ class MoneyTabCollectionViewController : UICollectionViewController
         
         setupSubMenuBar()
         
-        collectionView.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
+        collectionView.contentInset = UIEdgeInsets(top: 54, left: 0, bottom: 0, right: 0)
         
         collectionView.showsVerticalScrollIndicator = false
+        
+        self.extendedLayoutIncludesOpaqueBars = true;
     }
     
     private func setupNavBar()
     {
-        let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width - 32, height: view.frame.height))
-        titleLabel.text = "Market"
+        let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
+        titleLabel.text = " Market"
         titleLabel.textColor = .black
 
         titleLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 30)
@@ -51,19 +53,22 @@ class MoneyTabCollectionViewController : UICollectionViewController
         
         navigationController?.navigationBar.shouldRemoveShadow(true)
         
-        navigationController?.navigationBar.barTintColor = .white
+        navigationController?.navigationBar.barTintColor = UIColor(r: 248, g: 248, b: 248)
         
-        navigationController?.hidesBarsOnSwipe = true
+        navigationController?.navigationBar.isTranslucent = false
+        
+//        navigationController?.hidesBarsOnSwipe = true
     }
     
     private func setupSubMenuBar()
     {
         view.addSubview(subMenuBar)
+        subMenuBar.backgroundColor = UIColor(r: 248, g: 248, b: 248)
         subMenuBar.anchor(top: view.topAnchor,
                           left: view.leftAnchor,
                           bottom: nil,
                           right: view.rightAnchor,
-                          topPadding: 64,
+                          topPadding: 88,
                           leftPadding: 0,
                           bottomPadding: 0,
                           rightPadding: 0,
@@ -104,6 +109,6 @@ extension MoneyTabCollectionViewController : UICollectionViewDelegateFlowLayout
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat
     {
-        return 20
+        return 21
     }
 }

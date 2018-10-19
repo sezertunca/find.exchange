@@ -24,7 +24,7 @@ class SubMenuBar : UIView, UICollectionViewDataSource, UICollectionViewDelegate,
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = UIColor(r: 248, g: 248, b: 248)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.showsHorizontalScrollIndicator = false
@@ -36,15 +36,15 @@ class SubMenuBar : UIView, UICollectionViewDataSource, UICollectionViewDelegate,
         super.init(frame: frame)
         
         addSubview(collectionView)
-        
+    
         collectionView.anchor(top: topAnchor,
                               left: leftAnchor,
                               bottom: bottomAnchor,
                               right: rightAnchor,
                               topPadding: 0,
-                              leftPadding: 12,
+                              leftPadding: 20,
                               bottomPadding: 0,
-                              rightPadding: 0,
+                              rightPadding: 20,
                               width: 0,
                               height: 0)
         
@@ -78,7 +78,7 @@ extension SubMenuBar
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
         let size = (menuOptions[indexPath.item] as NSString).size(withAttributes: nil)
-        return CGSize(width: size.width + 60, height: collectionView.frame.height / 2)
+        return CGSize(width: size.width + 50, height: collectionView.frame.height / 2)
     }
 }
 

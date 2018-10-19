@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     {
         window = UIWindow()
         window?.rootViewController = TabBarViewController ()
+        
+        UIApplication.shared.statusBarStyle = .default
     
         return true
     }

@@ -33,9 +33,9 @@ class SubMenuCollectionViewCell : BaseCollectionViewCell
                      width: 0,
                      height: 0)
         
-        backgroundColor = .white
+        backgroundColor = UIColor(r: 248, g: 248, b: 248)
         
-        layer.cornerRadius = 10
+        layer.cornerRadius = Radius.subMenuItem
     }
     
     override var isSelected: Bool
@@ -49,7 +49,7 @@ class SubMenuCollectionViewCell : BaseCollectionViewCell
             }
             else
             {
-                backgroundColor = .white
+                backgroundColor = UIColor(r: 248, g: 248, b: 248)
                 label.textColor = .black
             }
         }
