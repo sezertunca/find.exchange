@@ -26,6 +26,8 @@
 		86DA275C217A683F003A3871 /* CardTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DA275B217A683F003A3871 /* CardTabBarViewController.swift */; };
 		86DA275E217A686A003A3871 /* ScanQrTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DA275D217A686A003A3871 /* ScanQrTabBarViewController.swift */; };
 		86DA2760217A688B003A3871 /* MoreTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DA275F217A688B003A3871 /* MoreTabBarViewController.swift */; };
+		86DA2763217A6A0A003A3871 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DA2762217A6A0A003A3871 /* Provider.swift */; };
+		86DA2767217A6D0E003A3871 /* Advert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DA2766217A6D0E003A3871 /* Advert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,8 @@
 		86DA275B217A683F003A3871 /* CardTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTabBarViewController.swift; sourceTree = "<group>"; };
 		86DA275D217A686A003A3871 /* ScanQrTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQrTabBarViewController.swift; sourceTree = "<group>"; };
 		86DA275F217A688B003A3871 /* MoreTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTabBarViewController.swift; sourceTree = "<group>"; };
+		86DA2762217A6A0A003A3871 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
+		86DA2766217A6D0E003A3871 /* Advert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Advert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,14 +125,14 @@
 		86DA271021794459003A3871 /* Find.Exchange */ = {
 			isa = PBXGroup;
 			children = (
+				86DA2761217A69F0003A3871 /* Models */,
 				86DA273F217945B2003A3871 /* Controllers */,
 				86DA2756217A6365003A3871 /* CustomViews */,
 				86DA274921795689003A3871 /* Cells */,
+				86DA2764217A6A4B003A3871 /* Protocols */,
 				86DA2746217952B7003A3871 /* Helpers */,
-				86DA271521794459003A3871 /* Main.storyboard */,
-				86DA27182179445A003A3871 /* Assets.xcassets */,
-				86DA271A2179445A003A3871 /* LaunchScreen.storyboard */,
 				86DA271D2179445A003A3871 /* Info.plist */,
+				86DA2765217A6A63003A3871 /* Others */,
 			);
 			path = Find.Exchange;
 			sourceTree = "<group>";
@@ -169,8 +173,7 @@
 			children = (
 				86DA2747217952C4003A3871 /* Extensions.swift */,
 				86DA2752217A5636003A3871 /* Constants.swift */,
-				86DA271121794459003A3871 /* AppDelegate.swift */,
-				86DA2757217A656D003A3871 /* SubMenuBarProtocol.swift */,
+				86DA274C217956BD003A3871 /* BaseCell.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -179,7 +182,6 @@
 			isa = PBXGroup;
 			children = (
 				86DA274A2179569D003A3871 /* MarketCollectionViewCell.swift */,
-				86DA274C217956BD003A3871 /* BaseCell.swift */,
 				86DA2750217962AC003A3871 /* SubMenuCollectionViewCell.swift */,
 			);
 			path = Cells;
@@ -191,6 +193,34 @@
 				86DA274E21795BD8003A3871 /* SubMenuBar.swift */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		86DA2761217A69F0003A3871 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				86DA2762217A6A0A003A3871 /* Provider.swift */,
+				86DA2766217A6D0E003A3871 /* Advert.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		86DA2764217A6A4B003A3871 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				86DA2757217A656D003A3871 /* SubMenuBarProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		86DA2765217A6A63003A3871 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				86DA271121794459003A3871 /* AppDelegate.swift */,
+				86DA271521794459003A3871 /* Main.storyboard */,
+				86DA27182179445A003A3871 /* Assets.xcassets */,
+				86DA271A2179445A003A3871 /* LaunchScreen.storyboard */,
+			);
+			path = Others;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,11 +362,13 @@
 				86DA274B2179569D003A3871 /* MarketCollectionViewCell.swift in Sources */,
 				86DA271221794459003A3871 /* AppDelegate.swift in Sources */,
 				86DA2758217A656D003A3871 /* SubMenuBarProtocol.swift in Sources */,
+				86DA2767217A6D0E003A3871 /* Advert.swift in Sources */,
 				86DA274F21795BD8003A3871 /* SubMenuBar.swift in Sources */,
 				86DA275A217A6790003A3871 /* AccountsTabBarViewController.swift in Sources */,
 				86DA275E217A686A003A3871 /* ScanQrTabBarViewController.swift in Sources */,
 				86DA275C217A683F003A3871 /* CardTabBarViewController.swift in Sources */,
 				86DA2753217A5636003A3871 /* Constants.swift in Sources */,
+				86DA2763217A6A0A003A3871 /* Provider.swift in Sources */,
 				86DA2760217A688B003A3871 /* MoreTabBarViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

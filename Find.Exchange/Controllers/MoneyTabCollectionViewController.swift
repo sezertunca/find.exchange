@@ -10,6 +10,17 @@ import UIKit
 
 class MoneyTabCollectionViewController : UICollectionViewController, SubMenuBarDelegate
 {
+    // Temp hard coded - This would normally be fetched from an API
+    var adverts : [Advert] =
+    {
+        var ad1 = Advert(title: "PICK OF THE WEEK",
+                         subTitle: "Your trusted provider for personal & business",
+                         image: #imageLiteral(resourceName: "couple1"),
+                         subTitleBackgroundColor: nil,
+                         provider: Provider(name: "Currency Solutions", logo: #imageLiteral(resourceName: "currency_solutions_logo")))
+        return [ad1]
+    }()
+    
     let cellId = "cellId"
     
     let subMenuBar : SubMenuBar =
@@ -57,7 +68,7 @@ class MoneyTabCollectionViewController : UICollectionViewController, SubMenuBarD
                            right: view.rightAnchor,
                            topPadding: 0,
                            leftPadding: 45,
-                           bottomPadding: 100,
+                           bottomPadding: 110,
                            rightPadding: 45,
                            width: 0,
                            height: 40)
@@ -125,12 +136,13 @@ extension MoneyTabCollectionViewController : UICollectionViewDelegateFlowLayout
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
-        return 3
+        return adverts.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MarketCollectionViewCell
+        cell.advert = adverts[indexPath.item]
         return cell
     }
     
