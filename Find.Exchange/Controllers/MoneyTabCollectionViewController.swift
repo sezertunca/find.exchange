@@ -40,6 +40,8 @@ class MoneyTabCollectionViewController : UICollectionViewController, SubMenuBarD
         return [currencySolutions, currencyFair, xendPay, people]
     }()
     
+    var firstTimeLoad = true
+    
     let cellId = "cellId"
     
     let subMenuBar : SubMenuBar =
@@ -64,8 +66,6 @@ class MoneyTabCollectionViewController : UICollectionViewController, SubMenuBarD
     {
         super.viewDidLoad()
         
-        hidesBottomBarWhenPushed = true
-        
         collectionView.backgroundColor = .whiteish
         
         collectionView.register(MarketCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
@@ -88,10 +88,12 @@ class MoneyTabCollectionViewController : UICollectionViewController, SubMenuBarD
                            right: view.rightAnchor,
                            topPadding: 0,
                            leftPadding: 45,
-                           bottomPadding: 110,
+                           bottomPadding: view.frame.height / 7,
                            rightPadding: 45,
                            width: 0,
                            height: 40)
+        
+        collectionView.contentOffset.x = 0
     }
     
     private func setupNavBar()
@@ -116,7 +118,26 @@ class MoneyTabCollectionViewController : UICollectionViewController, SubMenuBarD
         
         UIApplication.shared.statusBarView?.backgroundColor = .whiteish
         
-        navigationController?.navigationBar.isHidden = true
+    }
+    
+
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        collectionView.contentOffset.x = 0
+    }
+    
+    override func viewDidAppear(_ animated: Bool)
+    {
+        super.viewDidAppear(animated)
+        showNavAndTabBar()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool)
+    {
+        super.viewDidDisappear(animated)
+        showNavAndTabBar()
+
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle
@@ -124,21 +145,24 @@ class MoneyTabCollectionViewController : UICollectionViewController, SubMenuBarD
         return .default
     }
     
+
     private func setupSubMenuBar()
     {
         view.addSubview(subMenuBar)
         subMenuBar.backgroundColor = .whiteish
         subMenuBar.delegate = self
-        subMenuBar.anchor(top: view.topAnchor,
+        
+        subMenuBar.anchor(top: view.safeAreaLayoutGuide.topAnchor,
                           left: view.leftAnchor,
                           bottom: nil,
                           right: view.rightAnchor,
-                          topPadding: 44,
+                          topPadding: 0,
                           leftPadding: 0,
                           bottomPadding: 0,
                           rightPadding: 0,
                           width: 0,
                           height: 60)
+
     }
     
     //MARK: - Handlers
@@ -157,28 +181,56 @@ class MoneyTabCollectionViewController : UICollectionViewController, SubMenuBarD
     {
         if (scrollView.contentOffset.y >= (scrollView.contentSize.height - scrollView.frame.size.height))
         {
-            UIView.animate(withDuration: 0.5, delay: 0, options:.transitionCurlDown, animations:
-            {
-                self.navigationController?.navigationBar.isHidden = true
-                self.tabBarController?.tabBar.isHidden = true
-            }, completion : nil)
+            hideNavAndTabBar()
         }
-        
-        if (scrollView.contentOffset.y < 0)
-        {
-            print("Reached top")
-        }
-        
+
+
         if (scrollView.contentOffset.y >= 0 && scrollView.contentOffset.y < (scrollView.contentSize.height - scrollView.frame.size.height))
         {
-            UIView.animate(withDuration: 0.5, delay: 0, options:.transitionCurlDown, animations:
-            {
-//                self.navigationController?.navigationBar.isHidden = false
-                self.tabBarController?.tabBar.isHidden = false
-            }, completion : nil)
+            showNavAndTabBar()
+        }
+        
+        firstTimeLoad = false
+    }
+    
+    private func hideNavAndTabBar()
+    {
+        if (!firstTimeLoad)
+        {
+            self.tabBarController?.hideTabBarAnimated(hide: true)
+            self.navigationController?.hideTabBarAnimated(hide: true)
+            moveSubMenuUp()
         }
     }
     
+    private func showNavAndTabBar()
+    {
+        if (!firstTimeLoad)
+        {
+            self.tabBarController?.hideTabBarAnimated(hide: false)
+            self.navigationController?.hideTabBarAnimated(hide: false)
+            moveSubMenuDown()
+        }
+    }
+    
+    private func moveSubMenuUp()
+    {
+        UIView.animate(withDuration: 0.3, animations:
+        {
+            self.subMenuBar.transform = CGAffineTransform(translationX: 0, y: -50)
+            self.hoverButton.transform = CGAffineTransform(translationX: 0, y: 80)
+        })
+    }
+    
+    private func moveSubMenuDown()
+    {
+        UIView.animate(withDuration: 0.3, animations:
+        {
+            self.subMenuBar.transform = CGAffineTransform(translationX: 0, y: 0)
+            self.hoverButton.transform = CGAffineTransform(translationX: 0, y: 0)
+        })
+    }
+
 }
 
 extension MoneyTabCollectionViewController : UICollectionViewDelegateFlowLayout

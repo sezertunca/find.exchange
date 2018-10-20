@@ -22,9 +22,13 @@ class AccountsTabBarViewController : UIViewController
     {
         super.viewDidLoad()
         
+        view.backgroundColor = .whiteish
+        
         view.addSubview(label)
         
         label.anchorCenterXToSuperview()
         label.anchorCenterYToSuperview()
+        
+        navigationController?.navigationBar.isHidden = false
     }
 }
