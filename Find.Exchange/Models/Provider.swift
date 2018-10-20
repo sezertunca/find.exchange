@@ -10,7 +10,9 @@ import UIKit
 
 struct Provider
 {
+    // Name of the provider
     var name : String
+    // Logo of the provider
     var logo : UIImage?
     
     init(name: String, logo: UIImage?)

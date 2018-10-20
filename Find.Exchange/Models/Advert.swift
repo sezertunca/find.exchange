@@ -8,6 +8,7 @@
 
 import UIKit
 
+// Used to display in MoneyTabController Cell
 struct Advert
 {
     var image : UIImage
@@ -15,6 +16,9 @@ struct Advert
     var subTitle : String
     
     var subTitleBackgroundColor : UIColor?
+    
+    // Provider details to show on the advert
+    // Optional as we can have a cell without provider for marketing reasons
     var provider : Provider?
     
     init(title: String,

@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "scan_qr-2.png",
+      "filename" : "scan_qr_active@2x-1.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "scan_qr-1.png",
+      "filename" : "scan_qr_active@2x.png",
       "scale" : "2x"
     },
     {

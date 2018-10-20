@@ -10,39 +10,10 @@ import UIKit
 
 class MoneyTabCollectionViewController : UICollectionViewController, SubMenuBarDelegate
 {
-    // Temp hard coded - This would normally be fetched from an API
-    var adverts : [Advert] =
-    {
-        var currencySolutions = Advert(title: "PICK OF THE WEEK",
-                         subTitle: "Your trusted provider for personal & business",
-                         image: #imageLiteral(resourceName: "couple1"),
-                         subTitleBackgroundColor: UIColor.init(r: 3, g: 80, b: 147, a: 0.7),
-                         provider: Provider(name: "Currency Solutions", logo: #imageLiteral(resourceName: "currency_solutions_logo")))
-        
-        var currencyFair = Advert(title: "You, him, she, her...",
-                         subTitle: "Just go direct...",
-                         image: #imageLiteral(resourceName: "couple2"),
-                         subTitleBackgroundColor: UIColor.init(r: 186, g: 201, b: 212, a: 1),
-                         provider: Provider(name: "Currency Fair", logo: #imageLiteral(resourceName: "currency_fair_logo")))
-        
-        var xendPay = Advert(title: "Become a XendPay",
-                         subTitle: "",
-                         image: #imageLiteral(resourceName: "girl"),
-                         subTitleBackgroundColor: UIColor.init(r: 3, g: 80, b: 147, a: 0),
-                         provider: Provider(name: "Xend>Pay", logo: #imageLiteral(resourceName: "xendpay_logo")))
-        
-        var people = Advert(title: "",
-                             subTitle: "",
-                             image: #imageLiteral(resourceName: "people"),
-                             subTitleBackgroundColor: UIColor.init(r: 3, g: 80, b: 147, a: 0),
-                             provider: Provider(name: "", logo: nil))
-        
-        return [currencySolutions, currencyFair, xendPay, people]
-    }()
-    
     var firstTimeLoad = true
-    
     let cellId = "cellId"
+    var advertService : AdvertService?
+    var ads = [Advert]()
     
     let subMenuBar : SubMenuBar =
     {
@@ -94,6 +65,23 @@ class MoneyTabCollectionViewController : UICollectionViewController, SubMenuBarD
                            height: 40)
         
         collectionView.contentOffset.x = 0
+
+        advertService = AdvertService.sharedInstance
+        
+        getAdverts()
+    }
+
+    private func getAdverts()
+    {
+        // Get Ads using callback as an API should usually expect a callback
+        advertService?.getAds
+        {
+            (adverts) in
+            if let ads = adverts
+            {
+                self.ads = ads
+            }
+        }
     }
     
     private func setupNavBar()
@@ -117,13 +105,13 @@ class MoneyTabCollectionViewController : UICollectionViewController, SubMenuBarD
         navigationController?.navigationBar.isTranslucent = false
         
         UIApplication.shared.statusBarView?.backgroundColor = .whiteish
-        
     }
     
 
     override func viewWillAppear(_ animated: Bool)
     {
         super.viewWillAppear(animated)
+        // Make sure we always see the first ads in coming back
         collectionView.contentOffset.x = 0
     }
     
@@ -242,13 +230,13 @@ extension MoneyTabCollectionViewController : UICollectionViewDelegateFlowLayout
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
-        return adverts.count
+        return ads.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MarketCollectionViewCell
-        cell.advert = adverts[indexPath.item]
+        cell.advert = ads[indexPath.item]
         if (indexPath.item == 1) {
             cell.providerNameLabel.textColor = .black
             cell.advertTitleLabel.textColor = .black

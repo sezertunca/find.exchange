@@ -14,7 +14,7 @@ class ScanQrTabBarController : UIViewController
     {
         let label = UILabel()
         label.text = "Coming Soon"
-        label.font = UIFont.systemFont(ofSize: 30, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: FontSize.title, weight: .bold)
         return label
     }()
     
@@ -22,7 +22,7 @@ class ScanQrTabBarController : UIViewController
     {
         super.viewDidLoad()
         
-        view.backgroundColor = .whiteish
+        view.backgroundColor = AppGeneralTheme.viewControllerBackgroundColor
         
         view.addSubview(label)
         

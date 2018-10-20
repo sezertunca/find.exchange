@@ -8,6 +8,21 @@
 
 import UIKit
 
+
+struct AppGeneralTheme
+{
+    static let viewControllerBackgroundColor : UIColor = .whiteish
+}
+
+struct TabBarTitle
+{
+    static let market = "Market"
+    static let accounts = "Accounts"
+    static let card = "Card"
+    static let scanQr = "Scan QR"
+    static let more = "More"
+}
+
 struct Radius
 {
     static let appGeneral : CGFloat = 18
