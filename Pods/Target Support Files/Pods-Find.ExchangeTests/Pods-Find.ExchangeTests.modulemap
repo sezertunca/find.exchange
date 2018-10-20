@@ -1,0 +1,6 @@
+framework module Pods_Find_ExchangeTests {
+  umbrella header "Pods-Find.ExchangeTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

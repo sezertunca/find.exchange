@@ -7,28 +7,31 @@
 //
 
 import UIKit
+import Lottie
 
 class MoreTabBarViewController : UIViewController
 {
-    let label : UILabel =
-    {
-        let label = UILabel()
-        label.text = "Coming Soon"
-        label.font = UIFont.systemFont(ofSize: FontSize.title, weight: .bold)
-        return label
-    }()
+    var loadingAnimationView : LOTAnimationView?
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        view.backgroundColor = AppGeneralTheme.viewControllerBackgroundColor
+        view.backgroundColor = .white
         
-        view.addSubview(label)
+        loadingAnimationView = LOTAnimationView(name: "plane")
         
-        label.anchorCenterXToSuperview()
-        label.anchorCenterYToSuperview()
+        loadingAnimationView?.loopAnimation = true
+        loadingAnimationView?.play()
+        
+        view.addSubview(loadingAnimationView!)
+        
+//        loadingAnimationView?.anchor(top: nil, left: nil, bottom: nil, right: nil, topPadding: 0, leftPadding: 0, bottomPadding: 0, rightPadding: 0, width: 700, height: 300)
+        
+        loadingAnimationView?.anchorCenterXToSuperview()
+        loadingAnimationView?.anchorCenterYToSuperview()
         
         navigationController?.navigationBar.isHidden = false
     }
+
 }

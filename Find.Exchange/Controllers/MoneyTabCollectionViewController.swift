@@ -128,6 +128,8 @@ class MoneyTabCollectionViewController : UICollectionViewController, SubMenuBarD
 
     }
     
+    
+    
     override var preferredStatusBarStyle: UIStatusBarStyle
     {
         return .default

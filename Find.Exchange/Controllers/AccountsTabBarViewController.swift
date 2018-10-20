@@ -7,27 +7,27 @@
 //
 
 import UIKit
+import Lottie
 
 class AccountsTabBarViewController : UIViewController
 {
-    let label : UILabel =
-    {
-        let label = UILabel()
-        label.text = "Coming Soon"
-        label.font = UIFont.systemFont(ofSize: FontSize.title, weight: .bold)
-        return label
-    }()
+    var loadingAnimationView : LOTAnimationView?
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        view.backgroundColor = AppGeneralTheme.viewControllerBackgroundColor
+        view.backgroundColor = .white //AppGeneralTheme.viewControllerBackgroundColor
         
-        view.addSubview(label)
+        loadingAnimationView = LOTAnimationView(name: "logo")
         
-        label.anchorCenterXToSuperview()
-        label.anchorCenterYToSuperview()
+        view.addSubview(loadingAnimationView!)
+        
+        loadingAnimationView?.loopAnimation = true
+        loadingAnimationView?.play()
+        
+        loadingAnimationView?.anchorCenterXToSuperview()
+        loadingAnimationView?.anchorCenterYToSuperview()
         
         navigationController?.navigationBar.isHidden = false
     }

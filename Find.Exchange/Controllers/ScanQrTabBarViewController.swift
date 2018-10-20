@@ -7,28 +7,31 @@
 //
 
 import UIKit
+import Lottie
 
 class ScanQrTabBarController : UIViewController
 {
-    let label : UILabel =
-    {
-        let label = UILabel()
-        label.text = "Coming Soon"
-        label.font = UIFont.systemFont(ofSize: FontSize.title, weight: .bold)
-        return label
-    }()
+    var loadingAnimationView : LOTAnimationView?
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        view.backgroundColor = AppGeneralTheme.viewControllerBackgroundColor
+        view.backgroundColor = .white //UIColor.init(r: 35, g: 35, b: 35)
         
-        view.addSubview(label)
+        loadingAnimationView = LOTAnimationView(name: "geometry")
         
-        label.anchorCenterXToSuperview()
-        label.anchorCenterYToSuperview()
+        view.addSubview(loadingAnimationView!)
         
-        navigationController?.navigationBar.isHidden = false
+        loadingAnimationView?.loopAnimation = true
+        loadingAnimationView?.play()
+        
+        loadingAnimationView?.anchorCenterXToSuperview()
+        loadingAnimationView?.anchorCenterYToSuperview()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle
+    {
+        return .lightContent
     }
 }
