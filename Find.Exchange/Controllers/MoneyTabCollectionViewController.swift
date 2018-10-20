@@ -104,7 +104,10 @@ class MoneyTabCollectionViewController : UICollectionViewController, SubMenuBarD
         
         navigationController?.navigationBar.isTranslucent = false
         
-        UIApplication.shared.statusBarView?.backgroundColor = .whiteish
+        let statusBarView = UIView(frame: UIApplication.shared.statusBarFrame)
+        let statusBarColor = UIColor.whiteish
+        statusBarView.backgroundColor = statusBarColor
+        view.addSubview(statusBarView)
     }
     
 

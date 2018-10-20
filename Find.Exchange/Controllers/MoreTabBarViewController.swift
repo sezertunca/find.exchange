@@ -26,12 +26,18 @@ class MoreTabBarViewController : UIViewController
         
         view.addSubview(loadingAnimationView!)
         
-//        loadingAnimationView?.anchor(top: nil, left: nil, bottom: nil, right: nil, topPadding: 0, leftPadding: 0, bottomPadding: 0, rightPadding: 0, width: 700, height: 300)
-        
         loadingAnimationView?.anchorCenterXToSuperview()
         loadingAnimationView?.anchorCenterYToSuperview()
         
-        navigationController?.navigationBar.isHidden = false
+        let statusBarView = UIView(frame: UIApplication.shared.statusBarFrame)
+        let statusBarColor = UIColor.white
+        statusBarView.backgroundColor = statusBarColor
+        view.addSubview(statusBarView)
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle
+    {
+        return .default
     }
 
 }

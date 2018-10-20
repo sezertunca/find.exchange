@@ -30,5 +30,15 @@ class AccountsTabBarViewController : UIViewController
         loadingAnimationView?.anchorCenterYToSuperview()
         
         navigationController?.navigationBar.isHidden = false
+        
+        let statusBarView = UIView(frame: UIApplication.shared.statusBarFrame)
+        let statusBarColor = UIColor.white
+        statusBarView.backgroundColor = statusBarColor
+        view.addSubview(statusBarView)
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle
+    {
+        return .default
     }
 }

@@ -28,10 +28,15 @@ class ScanQrTabBarController : UIViewController
         
         loadingAnimationView?.anchorCenterXToSuperview()
         loadingAnimationView?.anchorCenterYToSuperview()
+        
+        let statusBarView = UIView(frame: UIApplication.shared.statusBarFrame)
+        let statusBarColor = UIColor.white
+        statusBarView.backgroundColor = statusBarColor
+        view.addSubview(statusBarView)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle
     {
-        return .lightContent
+        return .default
     }
 }
