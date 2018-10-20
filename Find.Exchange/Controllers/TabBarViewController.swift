@@ -26,8 +26,6 @@ class TabBarViewController : UITabBarController
         marketTabNavController.tabBarItem.title = "Market"
         marketTabNavController.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: .selected)
         
-        
-        
         let accountTabViewController = AccountsTabBarViewController()
         accountTabViewController.tabBarItem.image = UIImage(named: "accounts")?.withRenderingMode(.alwaysOriginal)
         accountTabViewController.tabBarItem.selectedImage = UIImage(named: "accounts_active")?.withRenderingMode(.alwaysOriginal)
@@ -42,7 +40,7 @@ class TabBarViewController : UITabBarController
         
         let qrTabViewController = ScanQrTabBarController()
         qrTabViewController.tabBarItem.image = UIImage(named: "qr")?.withRenderingMode(.alwaysOriginal)
-        qrTabViewController.tabBarItem.selectedImage = UIImage(named: "qr")?.withRenderingMode(.alwaysOriginal)
+        qrTabViewController.tabBarItem.selectedImage = UIImage(named: "qr_active")?.withRenderingMode(.alwaysOriginal)
         qrTabViewController.tabBarItem.title = "Scan QR"
         qrTabViewController.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: .selected)
         

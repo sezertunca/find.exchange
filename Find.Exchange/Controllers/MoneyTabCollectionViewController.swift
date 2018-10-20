@@ -249,6 +249,12 @@ extension MoneyTabCollectionViewController : UICollectionViewDelegateFlowLayout
     {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MarketCollectionViewCell
         cell.advert = adverts[indexPath.item]
+        if (indexPath.item == 1) {
+            cell.providerNameLabel.textColor = .black
+            cell.advertTitleLabel.textColor = .black
+            cell.advertSubTitleLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+            cell.advertSubTitleLabel.textColor = UIColor.init(r: 48, g: 48, b: 48)
+        }
         return cell
     }
     

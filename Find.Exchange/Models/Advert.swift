@@ -13,6 +13,7 @@ struct Advert
     var image : UIImage
     var title : String
     var subTitle : String
+    
     var subTitleBackgroundColor : UIColor?
     var provider : Provider?
     
