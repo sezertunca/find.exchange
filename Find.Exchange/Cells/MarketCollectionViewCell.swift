@@ -8,6 +8,7 @@
 //
 
 import UIKit
+import Hero
 
 class MarketCollectionViewCell : BaseCollectionViewCell
 {
@@ -25,6 +26,11 @@ class MarketCollectionViewCell : BaseCollectionViewCell
             {
                 bottomBackgroundView.backgroundColor = bottomColor
             }
+
+            backGroundImageView.hero.id = advert?.id.description
+//            backGroundImageView.hero.id = "\(advert?.id.description) bgImage"
+//            providerLogoImageView.hero.id = "\(advert?.id.description) providerLogo"
+//            providerNameLabel.hero.id = "\(advert?.id.description) providerName"
         }
     }
     

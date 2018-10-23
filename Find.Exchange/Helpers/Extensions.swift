@@ -290,3 +290,11 @@ extension UINavigationController
         })
     }
 }
+
+extension Int
+{
+    func description() -> String
+    {
+        return "\(self)"
+    }
+}

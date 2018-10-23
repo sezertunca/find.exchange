@@ -7,6 +7,7 @@ target 'Find.Exchange' do
 
   # Pods for Find.Exchange
   pod 'lottie-ios'
+  pod 'Hero'
 
   target 'Find.ExchangeTests' do
     inherit! :search_paths

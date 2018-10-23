@@ -11,6 +11,7 @@ import UIKit
 // Used to display in MoneyTabController Cell
 struct Advert
 {
+    var id  : Int
     var image : UIImage
     var title : String
     var subTitle : String
@@ -21,12 +22,14 @@ struct Advert
     // Optional as we can have a cell without provider for marketing reasons
     var provider : Provider?
     
-    init(title: String,
+    init(id : Int,
+        title: String,
          subTitle: String,
          image: UIImage,
          subTitleBackgroundColor: UIColor?,
          provider : Provider?)
     {
+        self.id = id
         self.title = title
         self.subTitle = subTitle
         self.image = image
